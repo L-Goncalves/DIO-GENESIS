@@ -1,3 +1,9 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url(Ubuntu-Regular.woff);
+    font-weight: bold;
+  }
+
 body {
     margin: 0;
     background-color: black;
