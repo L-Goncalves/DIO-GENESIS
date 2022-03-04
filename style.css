@@ -5,6 +5,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     overflow-y: hidden;
+    font-family: 'Ubuntu', sans-serif;
  
 }
 
@@ -15,6 +16,7 @@ body {
     background-repeat: no-repeat;  
     background-position: 0% 0%;
     background-size: 100% 100%;
+    font-family: 'Ubuntu', sans-serif;
    }
 
    .main-game{
@@ -143,4 +145,23 @@ body {
 
 .selected {
     opacity: 0.6
+}
+
+.repo-link{
+    color: #fff;
+    font-weight: 700;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.score{
+    text-align: center;
+    justify-content: center;
+ 
+    margin: 0% auto;
+    z-index: 3;
+     display: block;
+ 
+    font-size: 30px;
+    margin-left: 20px;
 }

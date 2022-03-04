@@ -39,7 +39,7 @@ const lightColor = (element, number) => {
        let divs = document.querySelectorAll('.selected').forEach((item) => {
            console.log(item)
            item.classList.remove('selected');
-       }, 1000)
+       }, 4000)
         console.log(divs)
         console.log('removing color: id', divs)
        
@@ -89,14 +89,15 @@ const createColorElement = (color) => {
 
 const nextLevel = () => {
    
- 
+    document.querySelector('.score').innerHTML = ` Pontuação: <b> ${score} <b>`
     score++;
+    
     shuffleOrder();
 }
 
 //funcao para game over
 const gameOver = () => {
-    alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
+    alert(`Pontuação: ${score-1}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
     order = [];
     clickedOrder = [];
     // myAudio.pause()
