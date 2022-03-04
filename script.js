@@ -16,7 +16,8 @@ const blue = document.querySelector('.blue');
 const red = document.querySelector('.red');
 const green = document.querySelector('.green');
 const yellow = document.querySelector('.yellow');
-myAudio = document.getElementById('player')
+myAudio = document.getElementById('player');
+myAudio.play()
 const shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4);
     order[order.length] = colorOrder;
@@ -108,7 +109,7 @@ const gameOver = () => {
 let playGame = () => {
     alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
     score = 0;
-   
+
     nextLevel();
 }
 
@@ -118,7 +119,7 @@ red.onclick = () => click(1);
 yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
 
-
+myAudio.play()
 //inicio do jogo
 playGame();
 
