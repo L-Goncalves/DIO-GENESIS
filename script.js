@@ -17,7 +17,7 @@ const red = document.querySelector('.red');
 const green = document.querySelector('.green');
 const yellow = document.querySelector('.yellow');
 myAudio = document.getElementById('player');
-myAudio.play()
+
 const shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4);
     order[order.length] = colorOrder;
@@ -99,17 +99,18 @@ const gameOver = () => {
     alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
     order = [];
     clickedOrder = [];
-    myAudio.pause()
+    // myAudio.pause()
    
     myAudio.play()
     playGame();
 }
 
 //funcao de inicio do jogo
-let playGame = () => {
+let playGame = async () => {
+    myAudio.play()
     alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
     score = 0;
-
+ 
     nextLevel();
 }
 
@@ -122,7 +123,6 @@ blue.onclick = () => click(3);
 myAudio.play()
 //inicio do jogo
 playGame();
-
 
 
 if (typeof myAudio.loop == 'boolean')
