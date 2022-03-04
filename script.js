@@ -24,27 +24,37 @@ const shuffleOrder = () => {
     clickedOrder = [];
 
     console.log(colorOrder)
+    document.querySelector('.wait').innerHTML = `Aguarde...`
     for(let i in order) {
         let elementColor = createColorElement(order[i]);
         lightColor(elementColor, Number(i) + 1);
     }
+    
 }
 
-const lightColor = (element, number) => {
+const lightColor = async (element, number) => {
     number = number * 500;
     setTimeout(() => {
         element.classList.add('selected');
     }, number - 250);
-    setInterval(() => {
-       let divs = document.querySelectorAll('.selected').forEach((item) => {
-           console.log(item)
-           item.classList.remove('selected');
-       }, 4000)
-        console.log(divs)
-        console.log('removing color: id', divs)
-       
-    }, 1000);
+   
+
+
+     
+  
     element.classList.remove('selected');
+}
+
+setInterval(() => {
+    unlightAllColor()
+}, 200);
+
+const unlightAllColor =  () => {
+    document.querySelectorAll('.selected').forEach( async(item) => {
+        console.log(item)
+         item.classList.remove('selected');
+    })
+
 }
 
 const checkOrder = () => {
@@ -76,29 +86,40 @@ const click = (color) => {
 
 const createColorElement = (color) => {
     if(color == 0) {
+        console.log('verde')
         return green;
     } else if(color == 1) {
+        console.log('vermelho')
         return red;
     } else if (color == 2) {
+        console.log('amarelo')
         return yellow;
     } else if (color == 3) {
+        console.log('azul')
         return blue;
     }
 }
 
 
 const nextLevel = () => {
-   
-    document.querySelector('.score').innerHTML = ` Pontuação: <b> ${score} <b>`
+    document.querySelector('.wait').innerHTML = `Aguarde...`
+    document.querySelectorAll('.selected').forEach( async(item) => {
+        console.log(item)
+         item.classList.remove('selected');
+    })
     score++;
     
+    document.querySelector('.score').innerHTML = `Pontuação: <b> ${score} <b>`
     shuffleOrder();
+    document.querySelector('.wait').innerHTML = ``
 }
 
 //funcao para game over
 const gameOver = () => {
-    alert(`Pontuação: ${score-1}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
+    alert(`Pontuação: ${score-1}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo\n`);
     order = [];
+    score = 0;
+    document.querySelector('.score').innerHTML = `Pontuação: <b> ${score} <b>`
     clickedOrder = [];
     // myAudio.pause()
    
@@ -109,8 +130,9 @@ const gameOver = () => {
 //funcao de inicio do jogo
 let playGame = async () => {
     myAudio.play()
-    alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
     score = 0;
+    alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
+   
  
     nextLevel();
 }

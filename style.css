@@ -150,7 +150,7 @@ body {
 
 
 .selected {
-    opacity: 0.6
+    opacity: 0.3
 }
 
 .repo-link{
@@ -160,7 +160,7 @@ body {
     margin-top: 10px;
 }
 
-.score{
+.score, .wait{
     text-align: center;
     justify-content: center;
  
